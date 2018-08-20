@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myblog',
     'mysite',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook'
+
 ]
 
 MIDDLEWARE = [
@@ -72,6 +78,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+#Used in allAuth
+AUTHENTICATION_BACKENDS = (
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+#For allAuth
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/profile/'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
